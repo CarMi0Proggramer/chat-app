@@ -29,7 +29,7 @@ export default function UserDropdown({
     function logOut() {
         socketManager.disconnect(email as string);
 
-        fetch("http://localhost:3000/auth/logout", {
+        fetch("https://programmers-chat-backend.onrender.com/auth/logout", {
             credentials: "include",
             method: "POST",
         }).then(() => navigate("/login"));

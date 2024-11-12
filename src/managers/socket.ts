@@ -9,7 +9,7 @@ interface SendMessageOptions extends SendOptions {
     msg: string;
 }
 
-const socket = io("http://localhost:3000");
+const socket = io("https://programmers-chat-backend.onrender.com");
 export const socketManager = SocketManager(socket);
 
 function SocketManager(socket: Socket) {

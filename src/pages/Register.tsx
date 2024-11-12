@@ -26,7 +26,7 @@ export default function Register() {
         const email = emailInput.value;
         const password = passwordInput.value;
 
-        fetch("http://localhost:3000/auth/register", {
+        fetch("https://programmers-chat-backend.onrender.com/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

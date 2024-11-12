@@ -67,7 +67,7 @@ export default function MySidebar({ messages }: { messages: Message[] }) {
     );
 
     useEffect(() => {
-        fetch("http://localhost:3000/users/lastConnectionTime", {
+        fetch("https://programmers-chat-backend.onrender.com/users/lastConnectionTime", {
             credentials: "include",
         })
             .then((res) => res.json())

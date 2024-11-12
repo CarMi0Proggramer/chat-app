@@ -6,7 +6,9 @@ export const userDataStore = atom({
     token: "",
 });
 
-fetch("http://localhost:3000/users/", { credentials: "include" })
+fetch("https://programmers-chat-backend.onrender.com/users/", {
+    credentials: "include",
+})
     .then((res) => res.json())
     .then((data) => {
         userDataStore.set({

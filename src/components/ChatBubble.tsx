@@ -111,7 +111,7 @@ export default function ChatBubble({
                                             if (message.file) {
                                                 const anchor =
                                                     document.createElement("a");
-                                                anchor.href = `http://localhost:3000/files/download/${message.file.id}`;
+                                                anchor.href = `https://programmers-chat-backend.onrender.com/files/download/${message.file.id}`;
                                                 anchor.download =
                                                     message.file.originalName;
 

@@ -13,7 +13,7 @@ export default function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:3000/messages/last", {
+        fetch("https://programmers-chat-backend.onrender.com/messages/last", {
             credentials: "include",
         })
             .then((res) => {

@@ -15,7 +15,7 @@ export default function Login() {
         const email = emailInput.value;
         const password = passwordInput.value;
 
-        fetch("http://localhost:3000/auth/login", {
+        fetch("https://programmers-chat-backend.onrender.com/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

@@ -51,7 +51,7 @@ export default function ChatRoom() {
         formData.append("roomName", roomName);
         formData.append("userEmail", userData.email);
 
-        fetch("http://localhost:3000/files/", {
+        fetch("https://programmers-chat-backend.onrender.com/files/", {
             method: "POST",
             credentials: "include",
             body: formData,
@@ -63,9 +63,12 @@ export default function ChatRoom() {
     socketManager.onMessage((message) => setMessages([...messages, message]));
 
     useEffect(() => {
-        fetch(`http://localhost:3000/messages?roomName=${roomName}`, {
-            credentials: "include",
-        })
+        fetch(
+            `https://programmers-chat-backend.onrender.com/messages?roomName=${roomName}`,
+            {
+                credentials: "include",
+            }
+        )
             .then((res) => {
                 if (res.status == 403) navigate("/login");
 
@@ -121,7 +124,7 @@ export default function ChatRoom() {
                                                 }
                                                 onClick={() => {
                                                     fetch(
-                                                        `http://localhost:3000/messages/${message.id}`,
+                                                        `https://programmers-chat-backend.onrender.com/messages/${message.id}`,
                                                         {
                                                             credentials:
                                                                 "include",
