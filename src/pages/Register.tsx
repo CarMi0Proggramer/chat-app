@@ -36,10 +36,12 @@ export default function Register() {
             }),
             credentials: "include",
         }).then(async (res) => {
+            const data = await res.json();
+
             if (res.ok) {
+                sessionStorage.setItem("access_token", data.access_token);
                 navigate("/");
             } else if (res.status == 400) {
-                const data = await res.json();
                 displayErrors(data);
             }
         });

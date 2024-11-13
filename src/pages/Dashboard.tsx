@@ -14,7 +14,9 @@ export default function Dashboard() {
 
     useEffect(() => {
         fetch("https://programmers-chat-backend.onrender.com/messages/last", {
-            credentials: "include",
+            headers: {
+                "X-TOKEN": sessionStorage.getItem("access_token") as string,
+            },
         })
             .then((res) => {
                 if (res.status == 403) navigate("/login");

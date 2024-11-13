@@ -30,7 +30,9 @@ export default function UserDropdown({
         socketManager.disconnect(email as string);
 
         fetch("https://programmers-chat-backend.onrender.com/auth/logout", {
-            credentials: "include",
+            headers: {
+                "X-TOKEN": sessionStorage.getItem("access_token") as string,
+            },
             method: "POST",
         }).then(() => navigate("/login"));
     }

@@ -7,7 +7,9 @@ export const userDataStore = atom({
 });
 
 fetch("https://programmers-chat-backend.onrender.com/users/", {
-    credentials: "include",
+    headers: {
+        "X-TOKEN": sessionStorage.getItem("access_token") as string,
+    },
 })
     .then((res) => res.json())
     .then((data) => {

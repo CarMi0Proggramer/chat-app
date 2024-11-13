@@ -53,7 +53,9 @@ export default function ChatRoom() {
 
         fetch("https://programmers-chat-backend.onrender.com/files/", {
             method: "POST",
-            credentials: "include",
+            headers: {
+                "X-TOKEN": sessionStorage.getItem("access_token") as string,
+            },
             body: formData,
         })
             .then((res) => res.json())
@@ -66,7 +68,9 @@ export default function ChatRoom() {
         fetch(
             `https://programmers-chat-backend.onrender.com/messages?roomName=${roomName}`,
             {
-                credentials: "include",
+                headers: {
+                    "X-TOKEN": sessionStorage.getItem("access_token") as string,
+                },
             }
         )
             .then((res) => {
@@ -126,8 +130,12 @@ export default function ChatRoom() {
                                                     fetch(
                                                         `https://programmers-chat-backend.onrender.com/messages/${message.id}`,
                                                         {
-                                                            credentials:
-                                                                "include",
+                                                            headers: {
+                                                                "X-TOKEN":
+                                                                    sessionStorage.getItem(
+                                                                        "access_token"
+                                                                    ) as string,
+                                                            },
                                                             method: "DELETE",
                                                         }
                                                     ).then(() => {

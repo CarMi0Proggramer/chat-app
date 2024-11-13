@@ -67,9 +67,14 @@ export default function MySidebar({ messages }: { messages: Message[] }) {
     );
 
     useEffect(() => {
-        fetch("https://programmers-chat-backend.onrender.com/users/lastConnectionTime", {
-            credentials: "include",
-        })
+        fetch(
+            "https://programmers-chat-backend.onrender.com/users/lastConnectionTime",
+            {
+                headers: {
+                    "X-TOKEN": sessionStorage.getItem("access_token") as string,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 const lastConnectionTime = new Date(data.lastConnectionTime);

@@ -27,6 +27,7 @@ export default function Login() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.name && data.email) {
+                    sessionStorage.setItem("access_token", data.access_token);
                     navigate("/");
                 } else {
                     navigate("/register");
